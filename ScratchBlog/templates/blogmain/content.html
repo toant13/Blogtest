@@ -1,0 +1,14 @@
+{% extends "blogmain/index.html" %}
+
+{% block title %}BLOG BLOCK TITLE{% endblock %}
+
+{% block content %}
+	{% for post in latest_blog_list %}
+		<div class="title">{{ post.title }}</div>
+		<ul>
+			<div class="time">{{ post.created }}</div>
+			<div class="body">{{ post.body|linebreaks }}</div>
+		</ul>
+		<hr>
+	{% endfor %}
+{% endblock %}
