@@ -1,4 +1,15 @@
 # Django settings for ScratchBlog project.
+import os
+import django
+# calculated paths for django and the site
+# used as starting points for various other paths
+DJANGO_ROOT = os.path.dirname(os.path.realpath(django.__file__))
+SITE_ROOT = os.path.dirname(os.path.realpath(__file__))
+
+# print os.path.abspath(os.path.join(os.path.dirname( __file__ ), '..', 'templates'))
+
+# print  "C:/Users/toant/git/Blog/ScratchBlog/templates/"
+
 
 DEBUG = True
 TEMPLATE_DEBUG = DEBUG
@@ -12,7 +23,8 @@ MANAGERS = ADMINS
 DATABASES = {
     'default': {
         'ENGINE': 'django.db.backends.sqlite3', # Add 'postgresql_psycopg2', 'mysql', 'sqlite3' or 'oracle'.
-        'NAME': 'C:\\Users\\toant\\git\\Blog\\ScratchBlog\\sqlite.db',                      # Or path to database file if using sqlite3.
+#         'NAME': 'C:\\Users\\toant\\git\\Blog\\ScratchBlog\\sqlite.db',                      # Or path to database file if using sqlite3.
+        'NAME': os.path.abspath(os.path.join(os.path.dirname( __file__ ), '..', 'sqlite.db')),
         # The following settings are not used with sqlite3:
         'USER': '',
         'PASSWORD': '',
@@ -111,7 +123,8 @@ TEMPLATE_DIRS = (
     # Put strings here, like "/home/html/django_templates" or "C:/www/django/templates".
     # Always use forward slashes, even on Windows.
     # Don't forget to use absolute paths, not relative paths.
-    "C:/Users/toant/git/Blog/ScratchBlog/templates/"
+#     "C:/Users/toant/git/Blog/ScratchBlog/templates/"
+    os.path.abspath(os.path.join(os.path.dirname( __file__ ), '..', 'templates'))
 )
 
 INSTALLED_APPS = (
